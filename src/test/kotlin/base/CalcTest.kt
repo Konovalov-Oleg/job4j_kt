@@ -23,4 +23,14 @@ class CalcTest {
     fun when2Divide2() {
         assertThat(divide(5, 2)).isEqualTo(2)
     }
+
+    @Test
+    fun shouldGetMaxFrom2Numbers() {
+        assertThat(max(6, 2)).isEqualTo(6)
+    }
+
+    @Test
+    fun shouldGetMaxFrom3Numbers() {
+        assertThat(max(5, 6, 2)).isEqualTo(6)
+    }
 }
