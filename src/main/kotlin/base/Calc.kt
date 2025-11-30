@@ -20,6 +20,16 @@ fun max(first: Int, second: Int) : Int  = if (first > second) first else second
 
 fun max(first:Int, second: Int, third: Int): Int = if (max(first, second) > third) max(first, second) else third
 
+fun draw(size : Int) {
+    if (size <= 0 || size % 2 == 0) return
+    for (x in 1 .. size) {
+        for (y in 1 .. size) {
+            if(x == y ||  size+1 == x+y) print('x') else print(' ')
+        }
+        println()
+    }
+}
+
 fun main() {
     val plus = add(1, 1)
     println("1 + 1 = $plus")
@@ -38,4 +48,6 @@ fun main() {
 
     val max3 = max(5, 2, 6)
     println("max from 5, 2 and 6 is $max3")
+
+    draw(11)
 }
