@@ -1,4 +1,4 @@
-package ru.job4j.base
+package base
 
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
