@@ -2,6 +2,7 @@ package ru.job4j.base
 
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertAll
 
 class CalcTest {
     @Test
@@ -32,5 +33,41 @@ class CalcTest {
     @Test
     fun shouldGetMaxFrom3Numbers() {
         assertThat(max(5, 6, 2)).isEqualTo(6)
+    }
+
+    @Test
+    fun shouldSortNotNullFirst_WithNullFirst() {
+        val names = arrayOfNulls<String>(10)
+        names[1] = "Oleg"
+        names[5] = "Oleg"
+        names[9] = "Oleg"
+
+        defragment(names)
+
+        assertAll(
+            { assertThat(names[0]).isNotNull() },
+            { assertThat(names[1]).isNotNull() },
+            { assertThat(names[2]).isNotNull() },
+            { assertThat(names[3]).isNull() }
+        )
+    }
+
+    @Test
+    fun shouldSortNotNullFirst_WithNotNullFirst() {
+        val names = arrayOfNulls<String>(10)
+        names[0] = "Oleg"
+        names[3] = "Oleg"
+        names[4] = "Oleg"
+        names[8] = "Oleg"
+
+        defragment(names)
+
+        assertAll(
+            { assertThat(names[0]).isNotNull() },
+            { assertThat(names[1]).isNotNull() },
+            { assertThat(names[2]).isNotNull() },
+            { assertThat(names[3]).isNotNull() },
+            { assertThat(names[5]).isNull() }
+        )
     }
 }
