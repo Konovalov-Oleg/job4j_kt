@@ -32,7 +32,7 @@ class CalcTest {
 
     @Test
     fun shouldGetMaxFrom3Numbers() {
-        assertThat(max(5, 6, 2)).isEqualTo(6)
+        assertThat(multiMax(::max,5, 6, 2)).isEqualTo(6)
     }
 
     @Test
